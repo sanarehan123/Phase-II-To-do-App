@@ -9,7 +9,11 @@ app = FastAPI(title="Todo API", version="1.0.0")
 # Allow frontend to talk to backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://phase-ii-to-do-3negmqsdv-sana-rehans-projects.vercel.app",  
+        "*"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

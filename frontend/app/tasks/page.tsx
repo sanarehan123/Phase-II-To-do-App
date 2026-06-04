@@ -11,13 +11,11 @@ export default function TasksPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // Add task form state
   const [showForm, setShowForm] = useState(false);
   const [newTitle, setNewTitle] = useState("");
   const [newDesc, setNewDesc] = useState("");
   const [adding, setAdding] = useState(false);
 
-  // Edit task state
   const [editingTask, setEditingTask] = useState<Task | null>(null);
   const [editTitle, setEditTitle] = useState("");
   const [editDesc, setEditDesc] = useState("");
@@ -161,14 +159,14 @@ export default function TasksPage() {
               onChange={(e) => setNewTitle(e.target.value)}
               placeholder="Task title *"
               required
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
             />
             <textarea
               value={newDesc}
               onChange={(e) => setNewDesc(e.target.value)}
               placeholder="Description (optional)"
               rows={2}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none text-gray-900 bg-white"
             />
             <div className="flex gap-2">
               <button
@@ -192,20 +190,20 @@ export default function TasksPage() {
         {/* Edit Task Modal */}
         {editingTask && (
           <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-            <form onSubmit={handleEditSave} className="bg-white rounded-xl p-6 w-full max-w-md shadow-xl">
+            <form onSubmit={handleEditSave} className="bg-white rounded-xl p-6 w-full max-w-md shadow-xl mx-4">
               <h2 className="text-lg font-semibold text-gray-800 mb-4">Edit Task</h2>
               <input
                 type="text"
                 value={editTitle}
                 onChange={(e) => setEditTitle(e.target.value)}
                 required
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
               />
               <textarea
                 value={editDesc}
                 onChange={(e) => setEditDesc(e.target.value)}
                 rows={3}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none text-gray-900 bg-white"
               />
               <div className="flex gap-2">
                 <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">
@@ -235,7 +233,6 @@ export default function TasksPage() {
                   task.completed ? "opacity-60" : ""
                 }`}
               >
-                {/* Checkbox */}
                 <button
                   onClick={() => handleToggle(task.id)}
                   className={`mt-0.5 w-5 h-5 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition ${
@@ -247,7 +244,6 @@ export default function TasksPage() {
                   {task.completed && <span className="text-xs">✓</span>}
                 </button>
 
-                {/* Content */}
                 <div className="flex-1 min-w-0">
                   <p className={`text-sm font-medium text-gray-800 ${task.completed ? "line-through" : ""}`}>
                     {task.title}
@@ -260,7 +256,6 @@ export default function TasksPage() {
                   </p>
                 </div>
 
-                {/* Actions */}
                 <div className="flex gap-2 flex-shrink-0">
                   <button
                     onClick={() => handleEdit(task)}
