@@ -11,7 +11,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://phase-ii-to-do-3negmqsdv-sana-rehans-projects.vercel.app",  
+        "https://phase-ii-to-do-app.vercel.app",  
         "*"
     ],
     allow_credentials=True,
